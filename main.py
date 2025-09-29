@@ -85,13 +85,13 @@ while lives > 0 and "_" in display:
     guess = input("\nGuess a letter: ").lower()
 
     if not guess.isalpha() or len(guess) != 1:
-        print("Please enter a single valid letter.\n")
+        print("Please enter a letter:).\n")
         continue
 
     if guess in guessed_letters:
-        print("You already guessed that letter!\n")
+        print("You already guessed that letter:(!\n")
         continue
-
+#marshall
 
     guessed_letters.append(guess)
 
@@ -99,14 +99,14 @@ while lives > 0 and "_" in display:
         for index, letter in enumerate(chosen_word):
             if letter == guess:
                 display[index] = guess
-        print("Correct!\n")
+        print("Correct!!!\n")
     else:
         lives -= 1
-        print("Wrong guess!\n")
+        print("Wrong guess:(!\n")
 
 # Arthur: Final output based on game result
 if "_" not in display:
-    print("Congratulations! You guessed the word:", chosen_word)
+    print("YAY!! You guessed the word:", chosen_word)
 else:
     print(hangman_art[-1])
-    print(" You lost! The word was:", chosen_word)
+    print(" You lost! Booooo The word was:", chosen_word)
