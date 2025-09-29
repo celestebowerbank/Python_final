@@ -1,4 +1,5 @@
-# Hangman Game - Group Project
+# CB, MW, XP, AH 7th P
+#  Hangman Game!!!!
 
 # Celeste: Importing required module
 import random
@@ -82,7 +83,7 @@ while lives > 0 and "_" in display:
     print("\nWord: ", " ".join(display))
     print("Guessed letters: ", ", ".join(guessed_letters))
 
-    guess = input("\nGuess a letter: ").lower()
+    guess = input("\nGuess a letter, use underscore for space: ").lower()
 
     if not guess.isalpha() or len(guess) != 1:
         print("Please enter a letter:).\n")
@@ -109,4 +110,4 @@ if "_" not in display:
     print("YAY!! You guessed the word:", chosen_word)
 else:
     print(hangman_art[-1])
-    print(" You lost! Booooo The word was:", chosen_word)
+    print(" You lost! Booooo!! The word was:", chosen_word)
