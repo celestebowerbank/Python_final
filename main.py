@@ -92,6 +92,7 @@ while lives > 0 and "_" in display:
         print("You already guessed that letter!\n")
         continue
 
+
     guessed_letters.append(guess)
 
     if guess in chosen_word:
