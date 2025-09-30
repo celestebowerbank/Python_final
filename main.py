@@ -1,17 +1,17 @@
 # CB, MW, XP, AH 7th P
 #  Hangman Game!!!!
 
-# Celeste: Importing required module
+# marshall: importing random
 import random
 
 # Celeste: Greeting and name input
 name = input("Hello Player!, What is your name? ")
 print(f"Hello, {name}! Welcome to Hangman!!\n")
 
-# Celeste: Word list setup
+# Celeste: Word list setup. You set up a long list
 word_list = ["apple", "banana", "orange", "lemon", "lime", "pasta", "french_toast", "waffle", "pancakes", "cornbread", "pizza", "fries", "noodles", "ramen", "sandwich", "milk", "cookie", "rasberries", "donut", "brownies", "garlic_bread", "pineapple", "rice", "burrito", "cheese", "coconut", "kiwi", "bread", "pringles", "takis", "dr_pepper", "sprite", "mango", "watermelon", "blueberries", "strawberries", "grapes", "papaya", "pomegranate", "passion_fruit", "cantaloupe", "honeydew", "broccoli", "carrot", "spinach", "kale", "zucchini", "bell_peppers", "cauliflower", "asparagus", "eggplant", "cabbage", "chicken_breast", "steak", "salmon", "tuna", "tofu", "shrimp", "turkey", "lamb", "yogurt", "butter", "cream_cheese", "ice_cream", "oat_milk", "almond_milk", "sour_cream", "greek_yogurt", "muffins", "croissant", "jelly_beans", "marshmallows", "ice_cream_sandwich", "fruit_snacks", "trail_mix", "granola_bar", "popsicle", "caramel", "coca-cola", "root_beer", "lemonade", "hot_chocolate", "smoothie", "energy_drink", "apple_juice", "pear", "peach", "plum", "apricot", "cherry", "cranberry", "dragon_fruit", "nectarine", "lettuce", "peas", "green_beans", "sweet_potato", "potato", "beets", "onions", "garlic", "radish", "mushrooms", "oatmeal", "cereal", "bagel", "tortilla", "biscuit", "english_muffin", "pita_bread", "rice_cakes", "sausage", "bacon", "ham", "meatballs", "eggs", "hot_dog"]
 
-# Marshall: Hangman Art 
+# Marshall: hangman art
 hangman_art = [
     '''
     +---+
@@ -72,27 +72,27 @@ hangman_art = [
 ]
 
 # Xander: Game logic 
-chosen_word = random.choice(word_list)
+chosen_word = random.choice(word_list)  #chooses the random word from the list
 guessed_letters = []
 lives = len(hangman_art) - 1
-display = ["_" if letter != "_" else "_" for letter in chosen_word]
+display = ["_" if letter != "_" else "_" for letter in chosen_word] #starts some of the game, subtracts lives, etc/
 
 
 while lives > 0 and "_" in display:
     print(hangman_art[len(hangman_art) - 1 - lives])
     print("\nWord: ", " ".join(display))
-    print("Guessed letters: ", ", ".join(guessed_letters))
+    print("Guessed letters: ", ", ".join(guessed_letters)) #Prints hangman art while subtracting lives and adding the actual artpieces 
 
     guess = input("\nGuess a letter, use underscore for space: ").lower()
 
-    if not guess.isalpha() or len(guess) != 1:
-        print("Please enter a letter:).\n")
-        continue
+    if not guess.isalpha() or len(guess) != 1:            #makes it so that it inputs letters in the correct space
+        print("Please enter a letter:).\n")               # Asks the user for the letter
+        continue                         
 
     if guess in guessed_letters:
-        print("You already guessed that letter:(!\n")
+        print("You already guessed that letter:(!\n")                    #If the user has already guessed a letter, returns the input and makes them guess agian
         continue
-#marshall
+#marshall adding the letters to a list, and telling you if the letter is in the word or not
 
     guessed_letters.append(guess)
 
@@ -105,9 +105,9 @@ while lives > 0 and "_" in display:
         lives -= 1
         print("Wrong guess:(!\n")
 
-# Arthur: Final output based on game result
+# Arthur: output for if you win or lose
 if "_" not in display:
-    print("YAY!! You guessed the word:", chosen_word)
+    print("YAY!! You guessed the word:", chosen_word) #teles when you won.
 else:
-    print(hangman_art[-1])
-    print(" You lost! Booooo!! The word was:", chosen_word)
+    print(hangman_art[-1]) 
+    print(" You lost! Booooo!! The word was:", chosen_word) #teles when you lost.
